@@ -23,7 +23,7 @@
     <TextView
         android:id="@+id/box_two_text"
         style="@style/WhiteBox"
-        android:layout_width="130"
+        android:layout_width="130dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
