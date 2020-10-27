@@ -13,20 +13,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        binding.apply {
-            boxOneText.setOnClickListener { makeColored(it) }
-            boxTwoText.setOnClickListener { makeColored(it) }
-            boxThreeText.setOnClickListener { makeColored(it) }
-            boxFourText.setOnClickListener { makeColored(it) }
-            boxFiveText.setOnClickListener { makeColored(it) }
+        setListeners(binding)
+    }
+
+    private fun setListeners(bind: ActivityMainBinding) {
+        bind.apply {
+            val viewList: List<View> =
+                listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText)
+            viewList.forEach { viewBox -> viewBox.setOnClickListener { makeColored(it) } }
         }
-
-
     }
 
     private fun makeColored(view: View) {
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
                 else -> view.setBackgroundColor(Color.LTGRAY)
             }
-
         }
     }
 
