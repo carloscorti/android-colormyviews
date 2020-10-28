@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners(bind: ActivityMainBinding) {
         bind.apply {
             val viewList: List<View> =
-                listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText)
+                listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText, redButton, yellowButton, greenButton)
             viewList.forEach { viewBox -> viewBox.setOnClickListener { makeColored(it) } }
         }
     }
@@ -37,9 +37,14 @@ class MainActivity : AppCompatActivity() {
                 boxTwoText-> view.setBackgroundColor(Color.BLUE)
 
                 // Boxes using Android color resources for background
-                boxThreeText -> view.setBackgroundResource(android.R.color.holo_green_light)
-                boxFourText -> view.setBackgroundResource(android.R.color.holo_green_dark)
-                boxFiveText -> view.setBackgroundResource(android.R.color.holo_red_dark)
+                boxThreeText -> view.setBackgroundResource(android.R.color.holo_blue_light)
+                boxFourText -> view.setBackgroundResource(android.R.color.holo_orange_dark)
+                boxFiveText -> view.setBackgroundResource(android.R.color.black)
+
+                redButton -> boxThreeText.setBackgroundColor(Color.RED)
+                yellowButton -> boxFourText.setBackgroundColor(Color.YELLOW)
+                greenButton -> boxFiveText.setBackgroundColor(Color.GREEN)
+
 
                 else -> view.setBackgroundColor(Color.LTGRAY)
             }
